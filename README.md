@@ -1,0 +1,1 @@
+# comp120-echalumeau. This is the responsive lab. This took me about 3+ hours trying to figure out why the homer image would not show up when reference as .homer... background-image(/homer.jpg). Used WC3 school to look at css examples
