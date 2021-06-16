@@ -1,3 +1,4 @@
-It seems like we are adding the lyrics to the webpage in the scpirt and then we are going to sy
-https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_element_addeventlistener 
-This took four hours. 
+#README
+This project deals with using javascript to enhance a webpage. The objetcive is to annoatets a video with text.
+I reviewed a few things on https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_element_addeventlistener 
+In addition, I also reviewed the double rainbow example to get started and had to review if statements. 
