@@ -1,5 +1,17 @@
 #README.md
 i followed the directions on this. I created a .html, .css, and .js file and they are under the notuber folder. 
+When you said centered do you mean zoomed in and centered? Also Would this look the same on every screen? For example, if I had a wide monitor screen. 
+Worked about 1.5 hours
+ A big help was the google documentation.  
+https://developers.google.com/maps/documentation/javascript/examples/marker-accessibility
+Posting this on Piazza but is this a google maps related error?
+```
+The character encoding of the HTML document was not declared. The document will render with garbled text in some browser configurations if the document contains characters from outside the US-ASCII range. The character encoding of the page must be declared in the document or in the transfer protocol.
+```
+  - Firgured it out added 
+  ```
+  <meta charset="utf-8" />
+  ```
 What I wanted to know is if I added the markers right. I did the following:
 ```` 
   const mXfkjrFw = new google.maps.Marker({
@@ -32,9 +44,10 @@ What I wanted to know is if I added the markers right. I did the following:
     map,
     icon: image,
   });
-````
-  But I wonder if this was correct:
   ````
+ 
+ But I wonder if this was correct:
+````
   const beaches = [
   ["Bondi Beach", -33.890542, 151.274856, 4],
   ["Coogee Beach", -33.923036, 151.259052, 5],
@@ -53,19 +66,25 @@ What I wanted to know is if I added the markers right. I did the following:
       title: beach[0],
       zIndex: beach[3],
     });
-    ````
+````
 
-This lab took about an hour to do. A big help was the google documentation.  
-https://developers.google.com/maps/documentation/javascript/examples/marker-accessibility
-No Optimatazion 
+### No Optimatazion 
 Load times:  37 request : 566.72 KB/437.84KB transfeered Finished in 1.57s
-Load CSS first, head section
+### Load CSS first, head section
 Load times:  37 request : 566.72 KB/437.84KB transfeered Finished in 1.43s
-Minify CSS
+### Minify CSS
 Load times:  37 request : 566.72 KB/437.84KB transfeered Finished in 1.37s
-Move JavaScript includes and code to the bottom of the HTML before the closing body tag
+### Move JavaScript includes and code to the bottom of the HTML before the closing body tag
 Load times:  37 request : 566.72 KB/437.84KB transfeered Finished in 1.34s
-Minify JavaScript code. 
+### Minify JavaScript code. 
 Load times:  37 request : 566.72 KB/437.84KB transfeered Finished in 1. 31s
+
 What I noticed was the time it took for the the request to load reduced everytime I optimize it. The file sizes remained the same. 
 
+## Review of directons and points
+- README - added
+- The basics (proper repository folder name, 1 CSS file, map on entire page, separate file for JavaScript) -added
+- Map centered on South Station -added?
+- Perform all performance enhancements
+- All the vehicles are marked on the map with the icon image Vehicle used as marker
+- Errors exist in JavaScript console. That is, errors that are not Google Maps API related. Warnings are acceptable. - found an issue (explained above) and fixed it
