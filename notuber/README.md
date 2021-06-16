@@ -1,7 +1,9 @@
-I think i followed the directions on this. I created a .html, .css, and .js file and they are under the notuber folder. 
-What I wanted to know is if I added the markers right. I did the following 
- const mXfkjrFw = new google.maps.Marker({
-    position: { lat: 42.3453, lng: -71.0464 },
+#README.md
+i followed the directions on this. I created a .html, .css, and .js file and they are under the notuber folder. 
+What I wanted to know is if I added the markers right. I did the following:
+```` 
+  const mXfkjrFw = new google.maps.Marker({
+  position: { lat: 42.3453, lng: -71.0464 },
     map,
     icon: image,
   });
@@ -30,8 +32,9 @@ What I wanted to know is if I added the markers right. I did the following
     map,
     icon: image,
   });
-
+````
   But I wonder if this was correct:
+  ````
   const beaches = [
   ["Bondi Beach", -33.890542, 151.274856, 4],
   ["Coogee Beach", -33.923036, 151.259052, 5],
@@ -50,6 +53,7 @@ What I wanted to know is if I added the markers right. I did the following
       title: beach[0],
       zIndex: beach[3],
     });
+    ````
 
 This lab took about an hour to do. A big help was the google documentation.  
 https://developers.google.com/maps/documentation/javascript/examples/marker-accessibility
