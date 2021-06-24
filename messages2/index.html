@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Messages 2 </title>
+  <script>
+  // Documentation for XMLHttpRequest object: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+
+// A global variable `request`
+var request;
+
+// Step 1: Make an instance of the XMLHttpRequest object to make an HTTP GET request
+request = new XMLHttpRequest();
+
+// Step 2: Initialize HTTP request
+//request.open("GET", "https://www.cs.tufts.edu/comp/120/cat.json", true);
+request.open("GET", "https://aws.random.cat/meow", true);
+
+// Step 3: Set up handler / callback function to deal with HTTP response
+request.onreadystatechange = function() {
+ //console.log("Here I am 3");
+  if (request.readyState == 4 && request.status == 200) {
+					//console.log("Here I am 4");
+					imgfile = JSON.parse(request.responseText);
+					messagesSection = document.getElementById("meow");
+				  //  messagesSection.innerHTML = '<img src=\https://purr.objects-us-east-1.dream.io/i/tumblr_lzprpvz2Sb1qfjjglo2_250.gif>'
+                    messagesSection.innerHTML = '<img src=\ imgfile.file>'
+          console.log(imgfile.file);
+					
+					
+				}
+}
+
+// Step 4: Send ("fire off") the request
+request.send();
+  </script>
+</head>
+
+<body>
+  <h1>Some Cat Picture</h1>
+  <div id="meow">
+  No picture......
+  </div>
+</body>
+
+</html>

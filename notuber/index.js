@@ -1,40 +1,52 @@
-let map;
+function initMap () {
+  navigator.geolocation.getCurrentPosition(function (position) {
+          getcarz(position.coords.latitude, position.coords.longitude)
+          const mylocation = new google.maps.Marker({
+            position: { lat: position.coords.latitude, lng: position.coords.longitude },
+            map,
+            
+          });
+      },
+      function (error) {
+          console.log("The Locator was denied :(")
+      })
+map = new google.maps.Map(document.getElementById("map"), {
+  center: { lng: -71.05524200000001, lat: 42.352271 },
+  zoom: 13,
+  
+});
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lng: -71.05524200000001, lat: 42.352271 },
-    zoom: 15,
-  });
-  // Using the image from the tufts websitr
-   const image = "https://tuftsdev.github.io/WebEngineering/assignments/summer2021/car.png";
-   const mXfkjrFw = new google.maps.Marker({
-    position: { lat: 42.3453, lng: -71.0464 },
-    map,
-    icon: image,
-  });
-  const carnZXB8ZHz = new google.maps.Marker({
-    position: { lat: 42.3662, lng: -71.0621 },
-    map,
-    icon: image,
-  });
-  const carTkwu74WC = new google.maps.Marker({
-    position: { lat: 42.3603, lng: -71.0547 },
-    map,
-    icon: image,
-  });
-  const car5KWpnAJN = new google.maps.Marker({
-    position: { lat: 42.3472, lng: -71.0802 },
-    map,
-    icon: image,
-  });
-  const caruf5ZrXYw = new google.maps.Marker({
-    position: { lat: 42.3663, lng: -71.0544 },
-    map,
-    icon: image,
-  });
-  const carVMerzMH8 = new google.maps.Marker({
-    position: { lat: 42.3542, lng: -71.0704 },
-    map,
-    icon: image,
-  });
-}
+
+  function getcarz(lat, long) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+              carz = JSON.parse(xhttp.responseText);
+              console.log(carz)
+              
+                  for (let i = 0; i < carz.length; i++){
+                    
+      const image = "https://tuftsdev.github.io/WebEngineering/assignments/summer2021/car.png";
+      const car = carz[i];
+                    
+      new google.maps.Marker({
+        position: { lat: carz[i].lat, lng: carz[i].lng },
+       map,
+        icon: image,
+
+      });
+
+    }
+          }
+      };
+      xhttp.open("POST", "https://jordan-marsh.herokuapp.com/rides", true);
+      xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      lat 
+      console.log(lat)
+      long
+      console.log(long)
+      xhttp.send('username=uVnnFbz7&lat='+lat+'&lng='+long);
+
+  }
+  
+};
