@@ -98,6 +98,11 @@ curl --data "username=uVnnFbz7&lat=0&lng=0" https://jordan-marsh.herokuapp.com/r
 https://medium.com/risan/track-users-location-and-display-it-on-google-maps-41d1f850786e 
 https://www.youtube.com/watch?v=3ls013DBcww 
 https://rajatamil.medium.com/get-user-location-with-javascript-geolocation-geocoding-apis-abed493f3a1a 
+this helped with the function within a function
+https://www.youtube.com/watch?v=uPhWSyRqQDA
+ - This help me figure out the infowindow
+ http://www.svennerberg.com/2011/04/calculating-distances-and-areas-in-google-maps-api-3/
+  - reading this to help figure out distnace cal
 Say approximately how many hours you have spent completing the lab.
 This took more then 6 hours
 big issues with understanding class backs and functions within functions
@@ -109,7 +114,7 @@ Taking the extra time on lab 10 to figure out the last two parts
 - (1 point) Determine and mark your location on the map DOne
 - (2 points) Make a successful request to the ride-hailing API, send your username, latitude, and longitude done
 - (3 points) Mark all the vehicles returned by the ride-hailing API on the map using the icon image Vehicle done
-- (2 points) Note the closest vehicle from where you are (e.g., upon clicking on marker of where you are)
+- (2 points) Note the closest vehicle from where you are (e.g., upon clicking on marker of where you are) 1/2 
 - (1 point) Polyline connecting your marker to the closest vehicle
 - (-3 points) Errors exist in JavaScript console. That is, errors that are not Google Maps API related. Warnings are acceptable.
 - (-3 points) You called either the ride-hailing API or Google Maps JavaScript API more than once.
