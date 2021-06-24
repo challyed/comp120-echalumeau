@@ -102,7 +102,8 @@ Say approximately how many hours you have spent completing the lab.
 This took more then 6 hours
 big issues with understanding class backs and functions within functions
 FINALLY
-
+Note
+Taking the extra time on lab 10 to figure out the last two parts
 ### Review of directons and points
 - (1 point) README DONE
 - (1 point) Determine and mark your location on the map DOne

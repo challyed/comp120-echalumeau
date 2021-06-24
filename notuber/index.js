@@ -1,15 +1,26 @@
 function initMap () {
   navigator.geolocation.getCurrentPosition(function (position) {
           getcarz(position.coords.latitude, position.coords.longitude)
-          const mylocation = new google.maps.Marker({
+          var mylocation = new google.maps.Marker({
             position: { lat: position.coords.latitude, lng: position.coords.longitude },
             map,
             
+            
           });
+          //InfoWindow
+          var infowindow = new google.maps.InfoWindow({
+            content: '<h3> The closest car is </h3>',
+          });
+
+          mylocation.addListener("click",() =>{
+            infowindow.open(map, mylocation);
+  } );
+          
       },
       function (error) {
-          console.log("The Locator was denied :(")
+          alert("The Locator was denied :(")
       })
+      
 map = new google.maps.Map(document.getElementById("map"), {
   center: { lng: -71.05524200000001, lat: 42.352271 },
   zoom: 13,
@@ -22,7 +33,7 @@ map = new google.maps.Map(document.getElementById("map"), {
       xhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
               carz = JSON.parse(xhttp.responseText);
-              console.log(carz)
+              //console.log(carz)
               
                   for (let i = 0; i < carz.length; i++){
                     
@@ -39,14 +50,16 @@ map = new google.maps.Map(document.getElementById("map"), {
     }
           }
       };
+      
       xhttp.open("POST", "https://jordan-marsh.herokuapp.com/rides", true);
       xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
       lat 
-      console.log(lat)
+      //console.log(lat)
       long
-      console.log(long)
+      //console.log(long)
       xhttp.send('username=uVnnFbz7&lat='+lat+'&lng='+long);
 
   }
-  
+
+
 };
