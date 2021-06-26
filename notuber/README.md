@@ -103,9 +103,11 @@ https://www.youtube.com/watch?v=uPhWSyRqQDA
  - This help me figure out the infowindow
  http://www.svennerberg.com/2011/04/calculating-distances-and-areas-in-google-maps-api-3/
   - reading this to help figure out distnace cal
+  This was a better read of how to figure out the location
+  https://stackoverflow.com/questions/4057665/google-maps-api-v3-find-nearest-markers/18114276#18114276
 Say approximately how many hours you have spent completing the lab.
 This took more then 6 hours
-big issues with understanding class backs and functions within functions
+big issues with understanding callbacks,  and functions within functions
 FINALLY
 Note
 Taking the extra time on lab 10 to figure out the last two parts
