@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-
+import base64
+from struct import pack
 from scapy.all import *
 import argparse
+
 count = 0
 def packetcallback(packet):
   try:
@@ -22,60 +24,58 @@ def packetcallback(packet):
       var3 = 'TCP'
       print("Alert", count, "FIN Scan is detected from", var2, "(", var3 ,")")
     elif packet['TCP'].flags == 'FPU': #XMAS Scan
-      
       count = count+1 
-      
       var2 = packet.getlayer(IP).src
       var3 = 'TCP'
       print("Alert", count, "XMAS Scan is detected from", var2, "(",var3,")")
-    elif packet['TCP'].flags == 'A' and packet[TCP].dport == 80 : #Nitko
-      count
-      count = count+1 
       
-      var2 = packet.getlayer(IP).src
-      var3 = 'TCP'
-      print("Alert", count, "Nikto Scan is detected from", var2, "(",var3,")")
-    elif packet[TCP].dport == 21 or packet[TCP].dport == 80 or packet[TCP].dport == 143 and '230': #Password and username
-      #need yto figure out how to load password and then username
-      word = 'empty'
-      pword = 'empty' #password
-      uword = 'empty' #username
-      '''
-      if packet[tcp].dport == 21:
-        word = 'FTP'
-      elif packet[TCP].dport == 80:
-        word = 'HTTP'
-      elif packet[TCP].dport == 143:
-        word = 'IMAP'  
-      '''
-      count
-      count = count+1 
-      payload = packet[TCP].load.decode("ascii").strip()
-      #payload = payload.find("Pass")
-      #password = packet.load
-      #password = password.decode()
-      #print("payload",payload)
-      #print(password)
-      data = packet
-      print(packet)
-      if 'USER ' in data:
-        uword.append(data.split('USER ')[1].strip())
-      elif 'PASS ' in data:
-        pword.append(data.split('PASS ')[1].strip())
-      else:
-        uword
-        
-
-      print(uword)
-      print("Alert",count,"Usernames and passwords sent in-the-clear (HTTP)",payload)
-    elif packet[TCP].dport == 3389: #RDP
-      #count=0 
-      #count+=1
-      #count=count+1
+    #elif packet['TCP'].flags == 'A' and packet[TCP].dport == 80 : #Nitko
+      #count
+      #count = count+1 
       #var2 = packet.getlayer(IP).src
       #var3 = 'TCP'
-      print("Alert", count,"Someone scanning for Remote Desktop Protocol (RDP) protocol")
+      #print("Alert", count, "Nikto Scan is detected from", var2, "(",var3,")")
 
+    elif packet['TCP'].dport == 21 or packet['TCP'].dport == 80 or packet['TCP'].dport == 143: 
+      if packet['TCP'].dport == 21: #FTP
+        count
+        count = count+1  
+        payload = packet[TCP].load.decode("ascii").strip()
+        rippayload = payload.split('USER')[1].split()[0]
+        username = rippayload
+        mylist = []
+        password = packet[TCP]
+        mylist.append(username) 
+        mylist.append(password) 
+        
+
+        
+
+
+        print("Alert",count,"Usernames and passwords sent in-the-clear (FTP)", mylist)
+      elif packet['TCP'].dport == 80:  #http
+        count
+        count = count+1 
+        payload = packet[TCP].load.decode("ascii").strip()
+        rippayload = payload.split("Authorization: Basic ")[1].split()[0]
+        decodedBytes = base64.b64decode(rippayload)
+        decodedStr = str(decodedBytes, "utf-8")
+        decodedStr = decodedStr[1:]
+        decodedStr = decodedStr.split(":")
+        username = decodedStr[0]
+        password = decodedStr[1]
+        print("Alert",count,"Usernames and passwords sent in-the-clear (HTTP)",username,password)
+      elif packet['TCP'].dport == 143:  #IMAP
+        count
+        count = count+1 
+        payload = packet[TCP].load.decode("ascii").strip()
+        rippayload = payload.split()
+        
+        print("Alert",count,"Usernames and passwords sent in-the-clear (IMAP)", payload)
+    elif packet['TCP'].dport == 3389: #RDP
+      print("Alert", count,"Someone scanning for Remote Desktop Protocol (RDP) protocol")
+    
+      
   except:
     pass
 
