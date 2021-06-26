@@ -111,6 +111,39 @@ big issues with understanding callbacks,  and functions within functions
 FINALLY
 Note
 Taking the extra time on lab 10 to figure out the last two parts
+Trying to think about the functions
+So I should load the map, getmylocation, gettheirlocation, get the distance, draw the line, write the infomation?
+function loadthemap(text) {
+
+  tokenize(text, tgetmylocation);
+
+}
+
+function getmylocation(tokens) {
+
+  parse(tokens, gettheirlocation);
+
+}
+
+function gettheirlocation(parseTree) {
+
+  optimize(parseTree, get the distance);
+
+}
+
+function get the distance(optimizedTree) {
+
+  evalutate(optimizedTree, write the infomation);
+
+}
+
+function write the infomation(output) {
+
+  console.log(output);
+
+}
+
+DisplayInfoWindow
 ### Review of directons and points
 - (1 point) README DONE
 - (1 point) Determine and mark your location on the map DOne

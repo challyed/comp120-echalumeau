@@ -1,5 +1,4 @@
-let nameofcar = 'test'
-let distanceof = 10
+
 function initMap() {
   infoWindow = new google.maps.InfoWindow();
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -13,14 +12,14 @@ function initMap() {
       });
 
 
-      //InfoWindow
-      var infowindow = new google.maps.InfoWindow({
-        content: '<h3> The closest car is </h3> '+ nameofcar + '<h3>and it is</h3>'+ distanceof + '<h3>miles away</h3>',
-      });
-      mylocation.addListener("click", () => {
-        infowindow.open(map, mylocation,);
-        
-      });
+//InfoWindow
+var infowindow = new google.maps.InfoWindow({
+  content: '<h3> The closest car is </h3> '+ 'carz[closest].username' + '<h3>and it is</h3>'+ 'distances[closest]' + '<h3>miles away</h3>',
+});
+mylocation.addListener("click", () => {
+  infowindow.open(map, mylocation,);
+  
+});
      
     },
 
@@ -39,7 +38,7 @@ function initMap() {
 
 
 
-  function getcarz(lat, long, closesta) {
+  function getcarz(lat, long) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -78,12 +77,15 @@ function initMap() {
           distances[i] = d;
           if (closest == -1 || d < distances[closest]) {
             closest = i;
-       
+            
         }
       }
+      //console.log(carz[closest]);
         //console.log(carz[closest].username);
-        closesta = carz[closest].username
-        
+
+        //console.log(distances[closest]);
+        //closesta = carz[closest].username
+        //console.log('<h3> The closest car is </h3> '+ carz[closest].username + '<h3>and it is</h3>'+ distances[closest] + '<h3>miles away</h3>')
         const polylines = [
           { lat:lat, lng: long },
           { lat: carz[closest].lat, lng: carz[closest].lng }
@@ -101,14 +103,15 @@ function initMap() {
 
 
       }
+            
     };
+
     xhttp.open("POST", "https://jordan-marsh.herokuapp.com/rides", true);
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-    //console.log(lat)
-
-    //console.log(long)
     xhttp.send('username=uVnnFbz7&lat=' + lat + '&lng=' + long);
   }
 
+
 };
+
+
