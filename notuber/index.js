@@ -1,4 +1,5 @@
-
+let nameofcar = 'test'
+let distanceof = 10
 function initMap() {
   infoWindow = new google.maps.InfoWindow();
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -14,7 +15,7 @@ function initMap() {
 
       //InfoWindow
       var infowindow = new google.maps.InfoWindow({
-        content: '<h3> The closest car is </h3>  ',
+        content: '<h3> The closest car is </h3> '+ nameofcar + '<h3>and it is</h3>'+ distanceof + '<h3>miles away</h3>',
       });
       mylocation.addListener("click", () => {
         infowindow.open(map, mylocation,);
