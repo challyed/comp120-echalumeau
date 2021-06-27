@@ -105,6 +105,8 @@ https://www.youtube.com/watch?v=uPhWSyRqQDA
   - reading this to help figure out distnace cal
   This was a better read of how to figure out the location
   https://stackoverflow.com/questions/4057665/google-maps-api-v3-find-nearest-markers/18114276#18114276
+  Figuring out how to do the google places
+  https://betterprogramming.pub/getting-the-best-places-in-town-with-the-google-maps-api-b23e2ab12510 
 Say approximately how many hours you have spent completing the lab.
 This took more then 6 hours
 big issues with understanding callbacks,  and functions within functions
