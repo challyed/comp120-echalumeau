@@ -49,7 +49,7 @@ mylocation.addListener("click", () => {
         //console.log(carz)
         //console.log(lat)
         //console.log(long)
-        var R = 6371; // radius of earth in km
+        var R = 6371/1.60934386516; // radius of earth in km to mi
         //console.log(R)
         var distances = [];
         //console.log(distances)
