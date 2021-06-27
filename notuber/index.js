@@ -14,7 +14,7 @@ function initMap() {
 
 //InfoWindow
 var infowindow = new google.maps.InfoWindow({
-  content: '<h3> The closest car is </h3> '+ carz[closest].username + '<h3>and it is</h3>'+ distances[closest] + '<h3>miles away</h3>',
+  content: '<h3> The closest car is </h3> '+ 'x' + '<h3>and it is</h3>'+ 'y' + '<h3>miles away</h3>',
 });
 mylocation.addListener("click", () => {
   infowindow.open(map, mylocation,);
@@ -83,7 +83,7 @@ mylocation.addListener("click", () => {
       //console.log(carz[closest]);
         //console.log(carz[closest].username);
 
-        console.log(distances[closest]);
+        //console.log(distances[closest]);
         //closesta = carz[closest].username
         //console.log('<h3> The closest car is </h3> '+ carz[closest].username + '<h3>and it is</h3>'+ distances[closest] + '<h3>miles away</h3>')
         const polylines = [
