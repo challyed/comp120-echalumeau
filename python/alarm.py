@@ -5,6 +5,7 @@ from scapy.all import *
 import argparse
 
 from scapy.layers.inet import IP, TCP
+import re
 
 count = 0
 nscan = ["nikto", "Nikto"]
@@ -12,10 +13,11 @@ nscan = ["nikto", "Nikto"]
 
 def packetcallback(packet):
     try:
-
         # The following is an example of Scapy detecting HTTP traffic
         # Please remove this case in your actual lab implementation so it doesn't pollute the alerts
         if TCP in packet:
+            if packet[TCP].dport == 80:
+              print("HTTP (web) traffic detected!")
             if packet['TCP'].flags == 0:  # null scan
                 global count
                 count = count + 1
@@ -46,13 +48,24 @@ def packetcallback(packet):
                 count = count + 1
                 if packet['TCP'].dport == 21:  # FTP
                   payload = packet[TCP].load.decode("ascii").strip()
-                  rippayload = payload.split('USER')[1].split()[0]
-                  username = rippayload
-                  mylist = []
-                  password = packet[TCP]
-                  mylist.append(username)
-                  mylist.append(password)
-                  print("Alert", count, "Usernames and passwords sent in-the-clear (FTP)", mylist)
+                  payload = str(payload)
+                  login = []
+                  #print(login)
+                  if 'USER' in payload:
+                    rippayload = payload.split('USER')[1].split()[0]
+                    login.append(rippayload)
+                    #print(login)
+                    print(rippayload)
+                  if 'PASS' in payload:
+                    rippayloada: str = payload.split('PASS')[1].split()[0]
+                    login.append(rippayloada)
+                    print(rippayloada)
+                    #print(login)
+                  login.append(rippayload)
+                  login.append(rippayloada)
+                  #print(login)
+                  print("Alert", count, "Usernames and passwords sent in-the-clear (FTP) "+ "username " + login[0]+' ' + "password "+login[1])
+                  #print("Alert", count, "Usernames and passwords sent in-the-clear (FTP)", payload)
                 elif packet['TCP'].dport == 80:  # http
                     payload = packet[TCP].load.decode("ascii").strip()
                     rippayload = payload.split("Authorization: Basic ")[1].split()[0]
@@ -71,10 +84,10 @@ def packetcallback(packet):
                   rippayloadb = payload.split()[3].strip(' " " ')
                   password = ''
                   
-                  print("Alert", count, "Usernames and passwords sent in-the-clear (IMAP) Username:", rippayloada + "Password :", rippayloada)
+                  print("Alert", count, "Usernames and passwords sent in-the-clear (IMAP) Username:", rippayloada + "Password :", rippayloadb)
             elif packet['TCP'].dport == 3389:  # RDP
                 print("Alert", count, "Someone scanning for Remote Desktop Protocol (RDP) protocol")
-
+      
 
     except:
         pass
