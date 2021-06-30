@@ -106,7 +106,8 @@ mylocation.addListener("click", () => {
             
     };
 
-    xhttp.open("POST", "https://jordan-marsh.herokuapp.com/rides", true);
+    //xhttp.open("POST", "https://jordan-marsh.herokuapp.com/rides", true);
+    xhttp.open("POST", "https://agile-journey-17204.herokuapp.com/rides", true);
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send('username=uVnnFbz7&lat=' + lat + '&lng=' + long);
   }
