@@ -8,6 +8,14 @@ From what I understand of the Nitko is that is is loud but I cant see the patter
 ### time
 This took the 2+ weeks to figure out
 ### Notes
+#### Nikto
+A reddit post seemed to refer as Nikto was on port 80 and 433.
+When looking at the packet in Wireshark it seems like anything related to to Nikto was 80 
+However it also seems like nikto is in the packet but I am having issues writing the correct if statement to get it.
+This video also mentioned port 433.
+https://www.youtube.com/watch?v=K78YOmbuT48
+
+#### Passwords
 One werid this is when trying to pull the passwords. I did a version of it in and IDE
 statement1 = 'USER wallstreetbets\n''PASS MoneyIsTheMostImportantThingInTheWorld\n''SYST\n''TYPE I\n''USER APPLE\n' 'PASS TIME\n' #This acts like packet[TCP].load.decode("ascii").strip()
 statement1 = str(statement1)
@@ -52,7 +60,8 @@ Alert 1 Usernames and passwords sent in-the-clear (FTP) username wallstreetbets 
 Process finished with exit code 0
 
 
-it kind of produced what was needed. wouldnt work if there were multiple passwords but in the actucally version running on python it didnot produce any results
+it kind of produced what was needed. wouldnt work if there were multiple passwords but in the actucally version running on python it did not produce any results
+
 
 ### Review of directons and points
 README.txt (2 points) 

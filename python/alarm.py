@@ -35,7 +35,8 @@ def packetcallback(packet):
                 var2 = packet.getlayer(IP).src
                 var3 = 'TCP'
                 print("Alert", count, "XMAS Scan is detected from", var2, "(", var3, ")")
-            elif nscan in packet:
+            elif packet[TCP].dport == 80 or packet[TCP].dport == 443:
+            #elif nscan in packet or str(hexdump(packet)) == '4e 69 6b 74' or 'nikto' in packet.raw:
             #elif str(hexdump(packet)) == '4e 69 6b 74' :  # Nitko
                 
                 count = count + 1
