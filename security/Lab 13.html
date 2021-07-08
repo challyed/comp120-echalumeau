@@ -21,13 +21,13 @@
             <h3>  Severity of issue  </h3>
                 <p>High</p>
             <h3>  Description of issue. </h3>
-                <p> Within The OWASP application, it flagged two DOM-related cross-site scripting issues. When the user goes to the website of https://jordan-marsh.herokuapp.com/. They are met with an alert detailing how the site has many Fast and the Furious memes, a 'you mad?'/ troll face pop up.   </p>
+                <p> Within The OWASP application, it flagged two DOM-related cross-site scripting issues. Cross-site scripting is a very common vulnerability in web applications. This type of vulnerability allows attackers to inject scripts into webpages.  When the user goes to the website of https://jordan-marsh.herokuapp.com/. They are met with videos,  an alert detailing how the site has many Fast and the Furious memes, a 'you mad?'/ troll face pop up.   </p>
             <h3>  Proof of vulnerability. </h3>
             <p>Here is the result of the DOM-related cross-site scripting.</p>
             <img src="lab13a.PNG">
             <img src= "lab13b.PNG">
             <h3>  Resolution. </h3>
-                <p> It is recommended that the developers remove the ability for data to be interpreted as code or do not allow users to use specail characters while they input data.</p> 
+                <p> It is recommended that the developers remove the ability for data to be interpreted as code or do not allow users to use special characters while they input data.</p> 
             <h3>  Issue  2 Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) </h3>
             <h3>  Location   </h3>
             <p>In OWASP: </p>
@@ -36,7 +36,7 @@
             <h3>  Severity of issue  </h3>
                 <p>Low</p>
             <h3>  Description of issue.  </h3>
-            <p>This allows an attacker to gain insight into what tools and servers the target is using. </p>
+            <p>This allows an attacker to gain insight into what tools and servers the target is using. Lets say a user was using an old and outdated server, when the attacker see this they can figure out how to exploit the server's weaknesses.   </p>
             <h3>  Proof of vulnerability.  </h3>
             <p>In OWASP: </p>
             <img src= "lab13d.PNG">
@@ -45,7 +45,7 @@
             <h3>  Resolution.</h3>
                 <p> The web designer should make sure that this type of information is hidden. The server shouldn’t send website, and server information in the header.  </p>
         <h2> Conclusion  </h2>
-            <p>Do not hesitate to contact Comp 116: Introduction to Security at Tufts University for any more help. </p>
+            <p>Do not hesitate to contact Comp 116: Introduction to Security at Tufts University for any more help. I would also like to reiterate to not only use the tools to find out what it wrong with a website because they can be false positives.</p>
         <h2> Works Cited </h2>
         <ul>
             <li>https://cwe.mitre.org/data/definitions/79.html </li>
