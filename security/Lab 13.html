@@ -9,7 +9,7 @@
         <h2>Methodology</h2>
             <p> For this lab, OWASP ZAP version 2.10.0 and the Burp Suite Community Edition v2021.2.1 were used to record and log HTTP(S) traffic and intercept requests and responses HTTP requests header fields and request body including query strings and data. Alternative applications that can be used are Tamper Data for Firefox and mitmproxy. One thing to note, even if the applications say that there is a vulnerability it does not mean that it is there. It could be a false positive. </p>
         <h2> Abstract of Findings </h2>
-            <p>During the analysis, three issues were discovered. There was DOM-related cross-site scripting issue, a Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) issue and then there was an x.</p> 
+            <p>During the analysis, two issues were discovered. There was DOM-related cross-site scripting issue and  a Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) issue</p> 
         <h2> Issues Found  </h2>
             <h3> Issue  1 : Cross-site Scripting </h3>
             <h3>  Location </h3>
@@ -44,12 +44,6 @@
             <img src= "lab13g.PNG">
             <h3>  Resolution.</h3>
                 <p> The web designer should make sure that this type of information is hidden. The server shouldn’t send website, and server information in the header.  </p>
-            <h3>  Issue  3  </h3>
-            <h3>  Location </h3>
-            <h3>  Severity of issue  </h3>
-            <h3>  Description of issue. </h3>
-            <h3>  Proof of vulnerability. </h3>
-            <h3>  Resolution. </h3>
         <h2> Conclusion  </h2>
             <p>Do not hesitate to contact Comp 116: Introduction to Security at Tufts University for any more help. </p>
         <h2> Works Cited </h2>
