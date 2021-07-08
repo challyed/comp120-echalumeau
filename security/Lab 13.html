@@ -5,29 +5,40 @@
     <body>
         <h2>Introduction</h2>
             <p>This report is a vulnerability analysis of the website Not Uber located on https://jordan-marsh.herokuapp.com/.
-        This report aims to locate, analyze, and resolve any vulnerability abilies the site might have. </p>
+                This report aims to locate, analyze, and resolve any vulnerability abilities the site might have. </p>
         <h2>Methodology</h2>
-            <p> For this lab, the applications known as OWASP ZAP version 2.10.0 and the Burp Suite Community Edition v2021.2.1 were used to record and log HTTP(S) traffic and intercept requests and responses HTTP requests header fields and request body including query strings and data.  Alternative applications that can be used are Tamper Data for Firefox and mitmproxy.</p>
+            <p> For this lab, OWASP ZAP version 2.10.0 and the Burp Suite Community Edition v2021.2.1 were used to record and log HTTP(S) traffic and intercept requests and responses HTTP requests header fields and request body including query strings and data. Alternative applications that can be used are Tamper Data for Firefox and mitmproxy. One thing to note, even if the applications say that there is a vulnerability it does not mean that it is there. It could be a false positive. </p>
         <h2> Abstract of Findings </h2>
-            <p>During the anaylsis, there were three issues that were discovered. There were two Cross site Scriting issues and the x.</p> 
+            <p>During the analysis, three issues were discovered. There was DOM-related cross-site scripting issue, a Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) issue and then there was an x.</p> 
         <h2> Issues Found  </h2>
             <h3> Issue  1 : Cross-site Scripting </h3>
             <h3>  Location </h3>
+            <p>
+                The web hack is happening due to the following code. 
+
+                    The code here allows an attacker to send something like 
+                    ""<script> alert(=) </script>""
+
+            </p>
             <h3>  Severity of issue  </h3>
                 <p>High</p>
             <h3>  Description of issue. </h3>
-                <p> The issue is a cross-site scripting vulenrability. </p>
+                <p> Within The OWASP application, it flagged two DOM-related cross-site scripting issues. When the user goes to the website of https://jordan-marsh.herokuapp.com/. They are met with an alert detailing how the site has many Fast and the Furious memes, a 'you mad?'/ troll face pop up.   </p>
             <h3>  Proof of vulnerability. </h3>
+            <p>Here is the result of the DOM-related cross-site scripting.</p>
             <h3>  Resolution. </h3>
-                <p> It is recommended that the developers remove the ability for data to be interpreted as code or do not allow users to use specail characters while they inpu data.</p> 
-            <h3>  Issue  2  Cross-site Scripting </h3>
+                <p> It is recommended that the developers remove the ability for data to be interpreted as code or do not allow users to use specail characters while they input data.</p> 
+            <h3>  Issue  2 Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) </h3>
             <h3>  Location   </h3>
+            <p>In OWASP: </p>
             <h3>  Severity of issue  </h3>
-                <p>High</p>
+                <p>low</p>
             <h3>  Description of issue.  </h3>
+            <p>This allows an attacker to gain insight into what tools and servers the target is using. </p>
             <h3>  Proof of vulnerability.  </h3>
+            <p>In OWASP: </p>
             <h3>  Resolution.</h3>
-                <p> It is recommended that the developers remove the ability for data to be interpreted as code or do not allow users to use specail characters while they inpu data.  </p>
+                <p> The web designer should make sure that this type of information is hidden. The server shouldn’t send website, and server information in the header.  </p>
             <h3>  Issue  3  </h3>
             <h3>  Location </h3>
             <h3>  Severity of issue  </h3>
@@ -37,6 +48,12 @@
         <h2> Conclusion  </h2>
             <p>Do not hesitate to contact Comp 116: Introduction to Security at Tufts University for any more help. </p>
         <h2> Works Cited </h2>
-       <p>https://cwe.mitre.org/data/definitions/79.html  </p> 
+        <ul>
+            <li>https://cwe.mitre.org/data/definitions/79.html </li>
+            <li>https://www.youtube.com/watch?v=wLfRz7rRsH4</li>
+            <li>https://www.scanrepeat.com/web-security-knowledge-base/server-leaks-information-via-x-powered-by-http-response-header-fields </li>
+        </ul>
+        
+        
     </body>
 </html>
